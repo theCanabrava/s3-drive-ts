@@ -1,6 +1,6 @@
 import { Auth } from '../aws';
 import { baseActions } from './slice';
-import { UserDispatch } from './store';
+import { RootState, UserDispatch } from './store';
 import handleApiAction from './handleApiAction';
 
 export const logout = () => 
@@ -20,24 +20,33 @@ export const login = (username: string, password: string) =>
     dispatch(baseActions.authenticate(user));
 });
 
-export const restoreSession = () =>
-    async (dispatch: UserDispatch) =>
-    handleApiAction(dispatch, async () =>
+export const restoreSession = (onFaillure: () => void) =>
+async (dispatch: UserDispatch, getState: () => RootState) =>
 {
-    const user = await Auth.getUser();
-    dispatch(baseActions.authenticate(user));
-});
+    try
+    {
+        const user = await Auth.getUser();
+        dispatch(baseActions.authenticate(user));
+    }
+    catch(err)
+    {
+        onFaillure();
+    }
+};
 
-export const signUp = (
-    username: string, 
-    email: string, 
-    password: string, 
-    confirmPassword: string, 
-    onSuccess: () => {}) =>
+export const signUp = (form: SignUpForm, onSuccess: () => void) =>
     async (dispatch: UserDispatch) =>
     handleApiAction(dispatch, async () =>
 {
+    const { username, email, password, confirmPassword } = form;
     await Auth.signUp(username, email, password, confirmPassword);
     onSuccess();
 })
 
+type SignUpForm =
+{
+    username: string,
+    email: string,
+    password: string,
+    confirmPassword: string
+}
