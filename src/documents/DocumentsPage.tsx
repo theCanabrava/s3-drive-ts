@@ -24,23 +24,26 @@ const DocumentsPage = () =>
     }, [dispatch])
 
     return (
-        <div 
-            className={isDragActive ? classes.activeContainer : classes.container} 
-            {...getRootProps()}
-            onClick={(e) => e.stopPropagation()}
-        >
-            <Table
-                onClickAdd={() => dispatch(actions.upload(undefined))}
-                onClickLogOut={() => dispatch(actions.logout())}
-                elements={files}
-                onClickElement={(e) => dispatch(actions.download(files.find(f => e.id === f.id)!))}
-                onClickRemoveElement={(e) => dispatch(actions.remove(files.find(f => e.id === f.id)!))}
-                loading={status === 'loading'}
-            />
-            {
-                isDragActive && <div className={classes.activeOverlay}/>
-            }
+        <div className={classes.container}>
+             <div 
+                className={isDragActive ? classes.activeTable : classes.table} 
+                {...getRootProps()}
+                onClick={(e) => e.stopPropagation()}
+            >
+                <Table
+                    onClickAdd={() => dispatch(actions.upload(undefined))}
+                    onClickLogOut={() => dispatch(actions.logout())}
+                    elements={files}
+                    onClickElement={(e) => dispatch(actions.download(files.find(f => e.id === f.id)!))}
+                    onClickRemoveElement={(e) => dispatch(actions.remove(files.find(f => e.id === f.id)!))}
+                    loading={status === 'loading'}
+                />
+                {
+                    isDragActive && <div className={classes.activeOverlay}/>
+                }
+            </div>
         </div>
+       
     )
 }
 

@@ -3,6 +3,36 @@ import { Pallete } from '../shared';
 
 const useLoginStyles = createUseStyles(
 {
+    '@global':
+    {
+        html:
+        {
+            height: '100%',
+        },
+
+        body:
+        {
+            height: '100%',
+        },
+
+        '#root':
+        {
+            minHeight: '100%',
+            display: 'flex'
+        }
+    },
+
+    container:
+    {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingLeft: 24,
+        paddingRight: 24,
+        flex: 1
+    },
+
     box:
     {
         display: 'flex',
@@ -16,8 +46,7 @@ const useLoginStyles = createUseStyles(
             right: 64
         },
         backgroundColor: Pallete.FOREGROUND,
-        borderRadius: 4,
-        marginTop: 250
+        borderRadius: 4
     },
 
     label:

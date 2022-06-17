@@ -26,45 +26,47 @@ const LoginPage = () =>
     }
 
     return (
-        <form onSubmit={handleSubmit} className={classes.box}>
-            <label htmlFor={LOGIN_INPUT} className={classes.label}>
-                Login:
-            </label>
-            <input 
-                id={LOGIN_INPUT} 
-                type="text" 
-                value={login} 
-                onChange={(e) => setLogin(e.target.value)}
-                className={classes.input}
-            />
-            <label htmlFor={PASSWORD_INPUT} className={classes.label}>
-                Password:
-            </label>
-            <input 
-                id={PASSWORD_INPUT} 
-                type="password" 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)}
-                className={classes.input}
-            />
-            {
-                status === 'loading' ?
-                <Loading/> :
-                <>
-                    <input 
-                        type="submit" 
-                        value="LOG IN"
-                        className={classes.button}
-                    />
-                    <button 
-                        className={classes.bottomButton}
-                        onClick={() => navigate('/sign-up')}
-                    >
-                        SIGN UP
-                    </button>
-                </>
-            }
-        </form>
+        <div className={classes.container}>
+            <form onSubmit={handleSubmit} className={classes.box}>
+                <label htmlFor={LOGIN_INPUT} className={classes.label}>
+                    Login:
+                </label>
+                <input 
+                    id={LOGIN_INPUT} 
+                    type="text" 
+                    value={login} 
+                    onChange={(e) => setLogin(e.target.value)}
+                    className={classes.input}
+                />
+                <label htmlFor={PASSWORD_INPUT} className={classes.label}>
+                    Password:
+                </label>
+                <input 
+                    id={PASSWORD_INPUT} 
+                    type="password" 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)}
+                    className={classes.input}
+                />
+                {
+                    status === 'loading' ?
+                    <Loading/> :
+                    <>
+                        <input 
+                            type="submit" 
+                            value="LOG IN"
+                            className={classes.button}
+                        />
+                        <button 
+                            className={classes.bottomButton}
+                            onClick={() => navigate('/sign-up')}
+                        >
+                            SIGN UP
+                        </button>
+                    </>
+                }
+            </form>
+        </div>
     )
 }
 

@@ -23,7 +23,18 @@ const pressets =
 
 const useDocumentStyles = createUseStyles(
 {
+
     container:
+    {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingLeft: 24,
+        paddingRight: 24
+    },
+
+    table:
     {
         display: 'flex',
         flexDirection: 'column',
@@ -31,22 +42,40 @@ const useDocumentStyles = createUseStyles(
         backgroundColor: Pallete.FOREGROUND,
         borderRadius: 8,
         marginTop: 48,
-        width: 900,
+        minWidth: 900,
     },
 
-    activeContainer:
+    activeTable:
     {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'stretch',
         backgroundColor: Pallete.FOREGROUND,
         marginTop: 48,
-        width: 900,
+        minWidth: 900,
         borderRadius: 8,
         border: 'solid',
         borderWidth: 2,
         borderColor: Pallete.PRIMARY
 
+    },
+
+    '@media (max-width: 948px)':
+    {
+        container: 
+        {
+            alignItems: 'stretch',
+        },
+
+        table:
+        {
+            minWidth: 0,
+        },
+
+        activeTable:
+        {
+            minWidth: 0
+        },
     },
 
     activeOverlay:

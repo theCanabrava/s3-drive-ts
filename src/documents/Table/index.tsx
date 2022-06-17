@@ -43,7 +43,6 @@ const Table = ({elements, onClickAdd, onClickLogOut, onClickElement, onClickRemo
                 renderedElements
             }
             <span className={classes.tableFooter}/>
-            
         </>
     )
 }
