@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import {
     useNavigate,
@@ -11,8 +11,7 @@ import {
     store 
 } from '../user';
 
-type AppWrapperProps = { children: any };
-const AuthWatcher = () =>
+export const AuthWatcher = () =>
 {
     const { token } = useUserSelector(s => s);
     const dispatch = useUserDispatch();
@@ -30,11 +29,10 @@ const AuthWatcher = () =>
     return null;
 }
 
-const AppWrapper = ({children}: AppWrapperProps) =>
+const AppWrapper: React.FC<{children: JSX.Element}> = ({children}) =>
 {
     return (
         <Provider store={store}>
-            <AuthWatcher/>
             {children}
         </Provider>
     )

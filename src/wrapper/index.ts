@@ -1,2 +1,2 @@
-export { default as AppWrapper } from './AppWrapper';
+export { default as AppWrapper, AuthWatcher } from './AppWrapper';
 export { default as NoMatch } from './NoMatch';
