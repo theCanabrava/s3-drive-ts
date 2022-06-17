@@ -25,6 +25,7 @@ const userSlice = createSlice(
         {
             wait: s => { s.status = 'loading'; },
             break: s => { s.status = 'error'; },
+            ready: s => { s.status = 'idle'; },
             authenticate: (state, action: PayloadAction<CognitoUser>) =>
             {
                 state.username = action.payload.username;
