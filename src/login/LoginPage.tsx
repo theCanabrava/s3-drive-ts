@@ -52,11 +52,13 @@ const LoginPage = () =>
                     status === 'loading' ?
                     <Loading/> :
                     <>
-                        <input 
+                        <button 
                             type="submit" 
                             value="LOG IN"
                             className={classes.button}
-                        />
+                        >
+                            LOG IN
+                        </button>
                         <button 
                             className={classes.bottomButton}
                             onClick={() => navigate('/sign-up')}

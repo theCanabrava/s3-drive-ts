@@ -33,6 +33,7 @@ const useLoginStyles = createUseStyles(
         flex: 1
     },
 
+
     box:
     {
         display: 'flex',
@@ -75,6 +76,19 @@ const useLoginStyles = createUseStyles(
             right: 8
         },
         marginBottom: 16,
+    },
+
+    '@media (max-width: 446px)':
+    {
+        container: 
+        {
+            alignItems: 'stretch',
+        },
+
+        input:
+        {
+            minWidth: 0,
+        },
     },
 
     button:

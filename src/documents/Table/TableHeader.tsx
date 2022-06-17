@@ -14,7 +14,7 @@ const TableHeader = ({onClickAdd, onClickLogOut}: TableHeaderProps) =>
         <div className={classes.tableHeader}>
             <p className={classes.headerLabel}>Document:</p>
             <button className={classes.button} onClick={() => onClickAdd()}>ADD</button>
-            <button className={classes.button} onClick={onClickLogOut}>LOG OUT</button>
+            <button className={classes.button} onClick={onClickLogOut}>QUIT</button>
         </div>
     )
 }
