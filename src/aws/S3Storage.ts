@@ -14,7 +14,7 @@ Amplify.configure(
     }
 )
 
-const Storage: StorageWrapper = 
+const S3Storage: StorageWrapper = 
 {
     listFiles: async () =>
     {
@@ -40,4 +40,4 @@ const Storage: StorageWrapper =
     }
 }
 
-export default Storage
+export default S3Storage

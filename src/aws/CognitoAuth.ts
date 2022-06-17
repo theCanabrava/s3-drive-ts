@@ -14,7 +14,7 @@ Amplify.configure(
     }
 )
 
-const Auth: AuthWrapper =
+const CognitoAuth: AuthWrapper =
 {
     signIn: async (username, password) =>
     {
@@ -54,4 +54,4 @@ const getCognitoUser = (user: any) =>
     }
 );
 
-export default Auth;
+export default CognitoAuth;
