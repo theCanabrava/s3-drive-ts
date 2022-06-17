@@ -12,12 +12,13 @@ export const logout = () =>
     dispatch(baseActions.overrideFiles);
 });
 
-export const login = (username: string, password: string) => 
+export const login = (username: string, password: string, onSuccess: () => void) => 
     async (dispatch: UserDispatch) => 
     handleApiAction(dispatch, async () =>
 {
     const user = await Auth.signIn(username, password);
     dispatch(baseActions.authenticate(user));
+    onSuccess();
 });
 
 export const restoreSession = (onFaillure: () => void) =>
