@@ -5,15 +5,15 @@ import TableHeader from './TableHeader';
 import useDocumentsStyles from '../useDocumentsStyles';
 import Loading from '../../shared/components/Loading';
 
-type TableElement =  { id: string, name: string, [key: string]: any };
+type FileElement =  { id: string, name: string, [key: string]: any };
 type TableProps = 
 {
-    elements: TableElement[],
+    elements: FileElement[],
     loading: boolean,
     onClickAdd: () => void,
     onClickLogOut: () => void,
-    onClickElement: (e: TableElement) => void,
-    onClickRemoveElement: (e: TableElement) => void
+    onClickElement: (e: FileElement) => void,
+    onClickRemoveElement: (e: FileElement) => void
 }
 
 const Table = ({elements, onClickAdd, onClickLogOut, onClickElement, onClickRemoveElement, loading}: TableProps) =>

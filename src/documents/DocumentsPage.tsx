@@ -10,18 +10,18 @@ const DocumentsPage = () =>
     const { files, status } = useUserSelector(s => s);
     const dispatch = useUserDispatch();
 
-    const onDrop = useCallback(async acceptedFiles => {
+    const onDrop = useCallback(async (acceptedFiles: File[]) => {
         for(let file of acceptedFiles) 
         {
             await dispatch(actions.upload(file));
         }
-    }, [dispatch, actions])
+    }, [dispatch])
     const {getRootProps, isDragActive} = useDropzone({onDrop})
 
     useEffect(() =>
     {
         dispatch(actions.listFiles());
-    }, [dispatch, actions])
+    }, [dispatch])
 
     return (
         <div 
@@ -33,8 +33,8 @@ const DocumentsPage = () =>
                 onClickAdd={() => dispatch(actions.upload(undefined))}
                 onClickLogOut={() => dispatch(actions.logout())}
                 elements={files}
-                onClickElement={(e) => dispatch(actions.download(files.find(f => e.id === f.id)))}
-                onClickRemoveElement={(e) => dispatch(actions.remove(files.find(f => e.id === f.id)))}
+                onClickElement={(e) => dispatch(actions.download(files.find(f => e.id === f.id)!))}
+                onClickRemoveElement={(e) => dispatch(actions.remove(files.find(f => e.id === f.id)!))}
                 loading={status === 'loading'}
             />
             {
