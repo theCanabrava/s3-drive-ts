@@ -1,14 +1,15 @@
 import { Amplify, Auth as Cognito } from "aws-amplify";
+import Env from "./Env";
 import { AuthWrapper } from "./types";
 
 Amplify.configure(
     {
         Auth:
         {
-            identityPoolId: 'us-east-1:64466f8d-1dd9-43ed-9f89-2bfde880460e',
-            region: 'us-east-1',
-            userPoolId: 'us-east-1_gabxNaveu',
-            userPoolWebClientId: '5m93kk6un7tgs5g5cra1imem6r',
+            identityPoolId: Env.identityPoolId,
+            region: Env.region,
+            userPoolId: Env.userPoolId,
+            userPoolWebClientId: Env.userPoolWebClientId,
             mandatorySignIn: false
         }
     }

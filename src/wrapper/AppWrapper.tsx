@@ -24,7 +24,7 @@ export const AuthWatcher = () =>
         {
             if(pathname !== '/sign-up') navigate('/login');
         }))
-    }, [token]);
+    }, [token, dispatch, navigate, pathname]);
 
     return null;
 }
